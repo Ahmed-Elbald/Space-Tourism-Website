@@ -634,7 +634,7 @@ button {
   color: rgb(208, 214, 249);
   font-family: "Barlow Condensed", sans-serif;
   font-size: 0.875em;
-  font-letter-spacing: 2.4;
+  letter-spacing: 2.4px;
 }
 .main__description__name {
   font-family: "Bellefair", serif;
@@ -650,7 +650,7 @@ button {
 @media (min-width: 768px) and (max-width: 1439px) {
   .main__description__intro {
     font-size: 1em;
-    font-letter-spacing: 2.7;
+    letter-spacing: 2.7px;
   }
   .main__description__name {
     font-size: 40px;
@@ -665,7 +665,6 @@ button {
 @media (min-width: 1439px) {
   .main__description__intro {
     font-size: 1em;
-    font-letter-spacing: 2.7;
   }
   .main__description__name {
     font-size: 3.5em;

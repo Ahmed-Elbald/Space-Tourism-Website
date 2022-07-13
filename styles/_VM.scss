@@ -50,7 +50,7 @@ $max: 1439px;
   position: absolute;
   bottom: 50%;
   right: 50%;
-  @include prefix(transform, translate(-50%, -50%))
+  @include prefix(transform, translate(50%, 50%))
 }
 
 @mixin pseudo-element($content) {

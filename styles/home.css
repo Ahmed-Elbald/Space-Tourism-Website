@@ -590,6 +590,9 @@ button {
       -ms-flex-align: center;
           align-items: center;
   margin: 82px auto 0;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
 }
 @media (min-width: 768px) and (max-width: 1439px) {
   .main__link {
@@ -606,6 +609,34 @@ button {
     height: 273px;
     margin: 0;
   }
+}
+.main__link::before {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  -webkit-transform: translate(50%, 50%);
+  -moz-transform: translate(50%, 50%);
+  -ms-transform: translate(50%, 50%);
+  -o-transform: translate(50%, 50%);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(208, 214, 249, 0.5);
+  opacity: 0.5;
+  z-index: -1;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+@media (max-width: 1439px) {
+  .main__link::before {
+    display: none;
+  }
+}
+.main__link:hover::before {
+  width: 450px;
+  height: 450px;
 }
 .main__link button {
   pointer-events: none;

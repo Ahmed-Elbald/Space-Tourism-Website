@@ -533,17 +533,26 @@ button {
   font-size: 0.875em;
   font-family: "Barlow Condensed", sans-serif;
 }
-.main__description__destinations button.active {
-  color: #FFFFFF;
-}
-.main__description__destinations button.active::before {
+.main__description__destinations button::before {
   content: "";
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
+  width: 0%;
   height: 2px;
+  background-color: rgb(208, 214, 249);
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+.main__description__destinations button:hover::before {
+  width: 100%;
+}
+.main__description__destinations button.active {
+  color: #FFFFFF;
+}
+.main__description__destinations button.active::before {
   background-color: #FFFFFF;
+  width: 100%;
 }
 @media (min-width: 768px) {
   .main__description__destinations button {

@@ -168,8 +168,9 @@
       font: {
         family: $ff-2;
         size: $fs-7;
-        letter-spacing: 2.4;
       }
+
+      letter-spacing: 2.4px;
     }
 
     &__name {
@@ -192,8 +193,9 @@
       &__intro {
         font: {
           size: $fs-6;
-          letter-spacing: 2.7;
         }
+
+        letter-spacing: 2.7px;
       }
 
       &__name {
@@ -215,7 +217,6 @@
       &__intro {
         font: {
           size: $fs-6;
-          letter-spacing: 2.7;
         }
       }
 

@@ -60,6 +60,7 @@ function setBtns(techId) {
   btnsContainer.innerHTML = ""; // Empty the btnsContainer
   let btn = document.createElement("button");
   btn.className = "btn";
+  btn.ariaLabel = "Choose a technology method"
 
   for (let i of arr) {
 
