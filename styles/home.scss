@@ -157,7 +157,6 @@
     @include flex-centering;
     margin: 82px auto 0;
     position: relative;
-    z-index: 1;
     cursor: pointer;
 
     @include minmax-mq($min, $max) {
