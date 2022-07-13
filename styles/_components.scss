@@ -1,0 +1,343 @@
+// Imprted files
+
+@use "../styles/VM.scss" as *;
+
+/* Components */
+
+.container {
+  margin: auto;
+  padding: 0 18px 0 24px;
+
+  @include min-mq($max) {
+    padding-left: 164.5px;
+  }
+}
+
+.uppercase-text {
+  text-transform: uppercase;
+}
+
+.normal-text {
+  text-transform: none;
+}
+
+.header {
+  position: absolute;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  z-index: 1;
+
+  @include minmax-mq($min, $max) {
+    padding: 0 25px 0 37px;
+  }
+
+  @include min-mq($max) {
+    display: block;
+    padding: 0;
+  }
+
+  &__logo {
+    @include circle(40px);
+    background-color: $white;
+    cursor: pointer;
+
+    @include minmax-mq($min, $max) {
+      @include circle(46px);
+    }
+
+    @include min-mq($max) {
+      position: absolute;
+      top: 63px;
+      left: 55px;
+      @include circle(48px);
+    }
+  }
+
+  &__container {
+    padding: 0;
+    margin: 0;
+
+    @include min-mq($max) {
+      padding-top: 39px;
+      padding-left: 164.5px;
+      display: flex;
+      align-items: center;
+    }
+
+    .line {
+      flex-grow: 1;
+      height: 1px;
+      background-color: $transparentWhite;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 30px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        background-color: $transparentWhite;
+        z-index: 1;
+      }
+
+      @include max-mq($max - 1px) {
+        display: none;
+      }
+    }
+  }
+
+  &__toggle__btn {
+    * {
+      pointer-events: none;
+    }
+
+    @include min-mq($min) {
+      display: none;
+    }
+  }
+
+  .nav {
+    width: 254px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    padding-top: calc(118em / 16);
+    padding-left: 2em;
+    background-color: $lightBlack;
+    transition-duration: .5s;
+
+    &.opened {
+      transform: translateX(0);
+    }
+
+    @include min-mq($min) {
+      position: relative;
+      transform: translateX(0);
+      top: 0;
+      right: 0;
+      height: auto;
+      padding-top: 0;
+      padding-left: 0;
+    }
+
+    @include minmax-mq($min, $max) {
+      width: max-content;
+    }
+
+    @include min-mq($max) {
+      width: 827.8px;
+    }
+
+    &__close__btn {
+      position: absolute;
+      top: 34px;
+      right: 26px;
+
+      * {
+        pointer-events: none;
+      }
+
+      @include min-mq($min) {
+        display: none;
+      }
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+
+      @include min-mq($min) {
+        flex-direction: row;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      @include minmax-mq($min, $max) {
+        width: max-content;
+        padding-right: 2em;
+        padding-left: 2em;
+        height: 92.9px;
+      }
+
+      @include min-mq($max) {
+        width: 540.59px;
+        height: 95.75px;
+        margin-right: 168px;
+      }
+
+      li {
+        position: relative;
+        width: 100%;
+        color: $white;
+        padding: .8em;
+        transition-duration: .5s;
+        letter-spacing: 2.7px;
+
+        font: {
+          size: 16px;
+          weight: 200;
+        }
+
+        &::before {
+          --dimention: 2px;
+          content: "";
+          position: absolute;
+          width: var(--dimention);
+          height: 0;
+          top: 0;
+          left: calc(100% - var(--dimention));
+          background-color: $lightWhite;
+          transition-duration: .5s;
+        }
+
+        &.active::before {
+          height: 100%;
+          background-color: $white;
+        }
+
+
+        @include min-mq($min) {
+          height: 100%;
+          font-size: 16px;
+          @include flex-centering;
+
+          &::before {
+            --dimention: 2px;
+            width: 0;
+            height: var(--dimention);
+            top: calc(100% - var(--dimention));
+            left: 0;
+            background-color: $lightWhite;
+            transition-duration: .5s;
+          }
+
+          &.active::before {
+            width: 100%;
+            height: var(--dimention);
+          }
+
+          &:hover::before {
+            width: 100%;
+          }
+        }
+
+        @include minmax-mq($min, $max) {
+          font-size: 13.55px;
+        }
+
+        span {
+          margin-right: .5em;
+
+          @include minmax-mq($min, $max) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.main {
+  position: relative;
+  height: max-content;
+  min-height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  top: 0;
+  bottom: 0;
+
+  &__container {
+    padding-top: 88px;
+    padding-bottom: 58px;
+    color: $white;
+    text-align: center;
+
+    @include minmax-mq($min, $max) {
+      padding-top: 135px;
+      padding-bottom: 62px;
+    }
+
+    @include min-mq($max) {
+      padding-top: 212px;
+      padding-bottom: 118px;
+      text-align: left;
+      padding-right: 160px;
+      margin: 0;
+      width: 100%;
+    }
+
+  }
+
+  &__header {
+    color: white;
+    font-size: $fs-6;
+    font-family: $ff-2;
+    font-weight: 200;
+    letter-spacing: 2.7px;
+
+    span {
+      color: $lightWhite;
+      margin-right: .5em;
+    }
+
+    @include min-mq($min) {
+      text-align: left;
+      font-size: 20px;
+    }
+
+    @include min-mq($max) {
+      font-size: $fs-5;
+      margin-bottom: 60px;
+      letter-spacing: 4.7px;
+    }
+
+  }
+
+  &__content {
+
+    position: relative;
+    transition-duration: .8s;
+
+    &.fade {
+      opacity: 0;
+    }
+
+    .overlay {
+      height: 100%;
+      width: 0;
+      position: absolute;
+      top: 0;
+      background-color: $navBg;
+
+      &.filling {
+        animation: fill .5s linear 0s 1;
+      }
+
+      &.left {
+        left: 0;
+      }
+
+      &.right {
+        right: 0;
+      }
+    }
+
+    @keyframes fill {
+      100% {
+        width: 50%;
+      }
+
+    }
+  }
+}

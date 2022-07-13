@@ -1,0 +1,196 @@
+// Imprted files
+
+@use "../styles/VM.scss" as *;
+@use "../styles/global" as *;
+@use "../styles/components" as *;
+
+// Modifing the "container" componenet
+
+.container {
+  @include min-mq($min) {
+    padding-bottom: 0;
+  }
+}
+
+/* Main */
+
+.main {
+  background-image: url(../assets/crew/background-crew-mobile.jpg);
+
+  @include minmax-mq($min, $max) {
+    background-image: url(../assets/crew/background-crew-tablet.jpg);
+  }
+
+  @include min-mq($max) {
+    background-image: url(../assets/crew/background-crew-desktop.jpg);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include min-mq($max) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid $transparentWhite;
+
+    @include min-mq($min) {
+      margin-top: 0;
+      margin-bottom: 0;
+      order: 2;
+      border-bottom: none;
+    }
+
+    @include minmax-mq($min, $max) {
+      width: 455px;
+      height: 572px;
+    }
+
+    @include min-mq($max) {
+      width: 568px;
+      height: 712px;
+    }
+
+    img {
+      width: 177px;
+      height: 222px;
+
+      @include min-mq($min) {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &__description {
+    position: relative;
+    padding-top: 42px;
+    max-width: 445px;
+
+    @include minmax-mq($min, $max) {
+      margin-top: 60px;
+      margin-bottom: 40px;
+      padding-top: 0;
+      padding-bottom: 50px;
+    }
+
+    @include min-mq($max) {
+      margin-top: 155px;
+      padding-top: 0;
+      padding-bottom: 144px;
+    }
+
+    &__bullets {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @include min-mq($min) {
+        top: auto;
+        bottom: 0;
+
+      }
+
+      @include min-mq($max) {
+        left: 0;
+        transform: translateX(0);
+      }
+
+      .bullet {
+        line-height: 10px;
+        display: inline-block;
+        @include circle(10px);
+        background-color: $transparentWhite;
+        margin-right: 8px;
+        margin-left: 8px;
+        transition-duration: .5s;
+        cursor: pointer;
+
+        &.active {
+          background-color: $white;
+        }
+
+        &:hover {
+          background-color: $lightWhite
+        }
+
+        @include min-mq($max) {
+          line-height: 10px;
+          @include circle(15px);
+          margin-right: 12px;
+          margin-left: 12px;
+        }
+      }
+    }
+
+    &__role {
+      color: $transparentWhite;
+
+      font: {
+        family: $ff-3;
+        size: $fs-6;
+      }
+    }
+
+    &__name {
+      color: $white;
+      padding-top: 13px;
+      padding-bottom: 16px;
+
+      font: {
+        family: $ff-3;
+        size: 24px;
+        weight: 200;
+      }
+    }
+
+    &__text {
+      color: $lightWhite;
+      line-height: 27px;
+
+      font: {
+        family: $ff-1;
+        size: $fs-6;
+      }
+    }
+
+
+    @include minmax-mq($min, $max) {
+      &__role {
+        font-size: 24px;
+      }
+
+      &__name {
+        font-size: 40px;
+        padding-bottom: 27px;
+      }
+    }
+
+    @include min-mq($max) {
+      &__role {
+        font-size: $fs-4;
+      }
+
+      &__name {
+        font-size: $fs-3;
+        padding-top: 24px;
+        padding-bottom: 42px;
+      }
+
+      &__text {
+        font-size: 18px;
+        line-height: 32px;
+      }
+    }
+  }
+}

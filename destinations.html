@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is a website for our space tourism company">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+
+  <!-- Title -->
+  <title>Frontend Mentor | Space tourism website</title>
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS Links -->
+  <link rel="stylesheet" href="./styles/destinations.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <a href="./index.html"><img src="assets/shared/logo.svg" alt="Space Tourism Logo"></a>
+    </div>
+    <div class="container header__container">
+      <button class="header__toggle__btn" aria-label="Open The Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21">
+          <g fill="white" fill-rule="evenodd">
+            <path d="M0 0h24v3H0zM0 9h24v3H0zM0 18h24v3H0z" />
+          </g>
+        </svg>
+      </button>
+      <div class="line"></div>
+      <nav class="nav">
+        <button class="nav__close__btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21">
+            <g fill="#D0D6F9" fill-rule="evenodd">
+              <path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z" />
+              <path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z" />
+            </g>
+          </svg>
+        </button>
+        <div class="nav__container">
+          <ul class="nav__links">
+            <li><a href="./index.html" class="nav__link uppercase-text"><span>00</span>Home</a></li>
+            <li class="active"><a href="./destinations.html"
+                class="nav__link uppercase-text"><span>01</span>Destination</a></li>
+            <li><a href="./crew.html" class="nav__link uppercase-text"><span>02</span>Crew</a></li>
+            <li><a href="./tech.html" class="nav__link uppercase-text"><span>03</span>Technology</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container main__container">
+      <h1 class="main__header uppercase-text"><span>01</span> Pick your destination</h1>
+      <div class="main__content">
+        <div class="overlay left"></div>
+        <div class="overlay right"></div>
+        <div class="main__img">
+          <img src="assets/destination/image-moon.png" alt="Our Destination">
+        </div>
+        <div class="main__description">
+          <ul class="main__description__destinations">
+            <li class="destination" style="display: none">
+              <button></button>
+            </li>
+          </ul>
+          <h2 class="main__description__title uppercase-text"></h2>
+          <p class="main__description__text"></p>
+          <div class="main__description__info uppercase-text">
+            <div class="col distance">
+              <span class="key uppercase-text">AVG. DISTANCE</span>
+              <span class="value uppercase-text"></span>
+            </div>
+            <div class="col time">
+              <span class=" key uppercase-text">Est. travel time</span>
+              <span class="value uppercase-text"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+<script src="js/main.js" type="module"></script>
+<script src="js/destination.js" type="module"></script>
+
+</html>

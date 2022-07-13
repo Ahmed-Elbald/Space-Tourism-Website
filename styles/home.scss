@@ -1,0 +1,184 @@
+// Imprted files
+
+@use "../styles/VM.scss" as *;
+@use "../styles/global" as *;
+@use "../styles/components" as *;
+
+// Modifing the "container" componenet
+
+.container {
+  @include minmax-mq($min, $max) {
+    padding-right: 25px;
+  }
+}
+
+/* Header */
+
+.header .nav {
+  @supports (backdrop-filter: blur(1rem)) {
+    background-color: $navBg;
+    backdrop-filter: blur(1rem);
+  }
+}
+
+/* Main */
+
+.main {
+  background-image: url(../assets/home/background-home-mobile.jpg);
+  padding-bottom: 221px;
+
+  @include minmax-mq($min, $max) {
+    background-image: url(../assets/home/background-home-tablet.jpg);
+    padding-bottom: 120px;
+  }
+
+  @include min-mq($max) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 132px;
+    height: 100vh;
+    background-image: url(../assets/home/background-home-desktop.jpg);
+  }
+
+  &__container {
+    padding-top: 113.85px;
+    padding-bottom: 0;
+
+    @include minmax-mq($min, $max) {
+      padding-top: 195.5px;
+    }
+
+    @include min-mq($max) {
+      padding-top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+  }
+
+  &__header {
+    text-align: center;
+
+    @include min-mq($max) {
+      text-align: left;
+    }
+  }
+
+  &__text {
+
+    h1.main__header {
+      font: {
+        family: 'Barlow Condensed', sans-serif;
+        size: 16.26px;
+        weight: 200;
+      }
+
+      letter-spacing: 2.74px;
+      line-height: 20px;
+      color: $lightWhite;
+    }
+
+    span.large-text {
+      font: {
+        family: 'Bellefair', serif;
+        size: 81.32px;
+        weight: 200;
+      }
+
+      display: block;
+      line-height: 101.6px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      margin-top: 16px;
+    }
+
+    p.main__intro {
+      font: {
+        family: 'Barlow', sans-serif;
+        size: 15.25px;
+        weight: 200;
+      }
+
+      max-width: 430px;
+      margin-right: auto;
+      margin-left: auto;
+      color: $lightWhite;
+      line-height: 25.4px;
+      text-transform: none;
+    }
+
+    @include minmax-mq($min, $max) {
+
+      h1.main__header {
+        font-size: 19.36px;
+        letter-spacing: 3.27px;
+      }
+
+      span.large-text {
+        font-size: 145.17px;
+        line-height: 145.17px;
+      }
+
+      p.main__intro {
+        font-size: 15.4px;
+      }
+
+    }
+
+    @include min-mq($max) {
+
+      h1.main__header {
+        font-size: 27.93px;
+        letter-spacing: 4.71px;
+      }
+
+      span.large-text {
+        font-size: 150px;
+        line-height: 145.17px;
+        margin-bottom: 24px;
+        margin-top: 24px;
+      }
+
+      p.main__intro {
+        font-size: 17.95px;
+        line-height: 31px;
+      }
+
+    }
+  }
+
+  &__link {
+    @include circle(152.47px);
+    background-color: $white;
+    @include flex-centering;
+    margin: 82px auto 0;
+
+    @include minmax-mq($min, $max) {
+      @include circle(234px);
+      margin-top: 151px;
+    }
+
+    @include min-mq($max) {
+      @include circle(273px);
+      margin: 0;
+    }
+
+    button {
+      pointer-events: none;
+      text-transform: uppercase;
+      font-size: 20.33px;
+      letter-spacing: 1.27px;
+      font-family: $ff-3;
+      color: rgba(11, 13, 23, 1);
+      text-align: center;
+
+      @include min-mq($min) {
+        font-size: 31px;
+        letter-spacing: 1.97px;
+      }
+    }
+  }
+
+}

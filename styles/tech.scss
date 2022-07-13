@@ -1,0 +1,238 @@
+// Imprted files
+
+@use "../styles/VM.scss" as *;
+@use "../styles/global" as *;
+@use "../styles/components" as *;
+
+// Modifing the "container" componenet
+
+// .container {
+//   @include min-mq($min) {
+//     padding-bottom: 0;
+//   }
+// }
+
+/* Main */
+
+.main {
+  background-image: url(../assets/technology/background-technology-mobile.jpg);
+
+  @include minmax-mq($min, $max) {
+    background-image: url(../assets/technology/background-technology-tablet.jpg);
+  }
+
+  @include min-mq($max) {
+    background-image: url(../assets/technology/background-technology-desktop.jpg);
+  }
+
+  &__container {
+
+    padding-right: 0;
+    padding-bottom: 80px;
+
+    @include max-mq($max) {
+      padding-left: 0;
+    }
+
+    @include min-mq($min) {
+      padding-bottom: 100px;
+    }
+
+  }
+
+  &__header {
+    @include minmax-mq($min, $max) {
+      padding-left: 38.5px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 35px;
+
+    @include minmax-mq($min, $max) {
+      padding-top: 60px;
+    }
+
+    @include min-mq($max) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 170px;
+
+    img.portrait {
+      @include max-mq($max) {
+        display: none;
+      }
+    }
+
+    img.landscape {
+      @include min-mq($max) {
+        display: none;
+      }
+    }
+
+    @include minmax-mq($min, $max) {
+      height: 310px;
+    }
+
+    @include min-mq($max) {
+      width: 515px;
+      height: 527px;
+      order: 2;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 34px;
+    margin-bottom: 26px;
+
+    @include minmax-mq($min, $max) {
+      margin-top: 56px;
+      margin-bottom: 44px;
+    }
+
+    @include min-mq($max) {
+      margin-top: 0;
+      margin-bottom: 0;
+      flex-direction: column;
+      padding-right: 1em;
+      justify-content: space-between
+    }
+
+    .btn {
+      @include circle(40px);
+      @include flex-centering;
+      background-color: transparent;
+      color: white;
+      border: 1px solid $transparentWhite;
+      margin-right: 14px;
+      margin-left: 14px;
+      transition-duration: .5s;
+      font-size: $fs-6;
+
+      @include minmax-mq($min, $max) {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 24px;
+      }
+
+      @include min-mq($max) {
+        width: 80px;
+        height: 80px;
+        margin-right: 0;
+        margin-left: 0;
+        font-size: $fs-4;
+      }
+
+      &:hover {
+        background-color: $transparentWhite;
+      }
+
+      &.active {
+        background-color: $white;
+        color: $lightBlack;
+        border-color: $white;
+      }
+    }
+  }
+
+  &__description {
+    margin-right: 24px;
+    margin-left: 24px;
+    max-width: 445px;
+
+    @include min-mq($max) {
+      display: grid;
+      grid-template-columns: auto 470px;
+      gap: 70px;
+      max-width: none;
+    }
+
+    &__intro {
+      color: $lightWhite;
+
+      font: {
+        family: $ff-2;
+        size: $fs-7;
+        letter-spacing: 2.4;
+      }
+    }
+
+    &__name {
+      font: {
+        family: $ff-3;
+        size: 24px;
+      }
+
+      margin-top: 12px;
+      margin-bottom: 16px;
+    }
+
+    &__text {
+      color: $lightWhite;
+      font-size: $fs-7;
+      line-height: 25px;
+    }
+
+    @include minmax-mq($min, $max) {
+      &__intro {
+        font: {
+          size: $fs-6;
+          letter-spacing: 2.7;
+        }
+      }
+
+      &__name {
+        font: {
+          size: 40px;
+        }
+
+        margin-top: 16px;
+        margin-bottom: 27px;
+      }
+
+      &__text {
+        font-size: $fs-6;
+        line-height: 28px;
+      }
+    }
+
+    @include min-mq($max) {
+      &__intro {
+        font: {
+          size: $fs-6;
+          letter-spacing: 2.7;
+        }
+      }
+
+      &__name {
+        font: {
+          size: $fs-3;
+        }
+
+        margin-top: 11px;
+        margin-bottom: 17px;
+      }
+
+      &__text {
+        font-size: 18px;
+        line-height: 32px;
+      }
+    }
+
+  }
+}

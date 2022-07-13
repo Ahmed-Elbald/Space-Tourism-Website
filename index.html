@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This is a website for our space tourism company">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+
+  <!-- Title -->
+  <title>Frontend Mentor | Space tourism website</title>
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS Links -->
+  <link rel="stylesheet" href="./styles/home.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <a href="./index.html"><img src="assets/shared/logo.svg" alt="Space Tourism Logo"></a>
+    </div>
+    <div class="container header__container">
+      <button class="header__toggle__btn" aria-label="Open The Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21">
+          <g fill="white" fill-rule="evenodd">
+            <path d="M0 0h24v3H0zM0 9h24v3H0zM0 18h24v3H0z" />
+          </g>
+        </svg>
+      </button>
+      <div class="line"></div>
+      <nav class="nav">
+        <button class="nav__close__btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21">
+            <g fill="#D0D6F9" fill-rule="evenodd">
+              <path d="M2.575.954l16.97 16.97-2.12 2.122L.455 3.076z" />
+              <path d="M.454 17.925L17.424.955l2.122 2.12-16.97 16.97z" />
+            </g>
+          </svg>
+        </button>
+        <div class="nav__container">
+          <ul class="nav__links">
+            <li class="active"><a href="./index.html" class="nav__link uppercase-text"><span>00</span>Home</a></li>
+            <li><a href="./destinations.html" class="nav__link uppercase-text"><span>01</span>Destination</a></li>
+            <li><a href="./crew.html" class="nav__link uppercase-text"><span>02</span>Crew</a></li>
+            <li><a href="./tech.html" class="nav__link uppercase-text"><span>03</span>Technology</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main class="main">
+    <div class="container main__container">
+      <div class="main__text">
+        <h1 class="main__header uppercase-text">
+          So, you want to travel to
+        </h1>
+        <span class="large-text">Space</span>
+        <p class="main__intro">
+          Let’s face it; if you want to go to space, you might as well genuinely go to
+          outer space and not hover kind of on the edge of it. Well sit back, and relax
+          because we’ll give you a truly out of this world experience!
+        </p>
+      </div>
+      <div class="main__link">
+        <button aria-label="Explore Our Features">Explore</button>
+      </div>
+    </div>
+  </main>
+</body>
+
+<script src="js/main.js" type="module"></script>
+
+</html>
