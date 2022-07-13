@@ -451,7 +451,7 @@ button {
 
 /* Header */
 .header .nav {
-  background-color: rgba(208, 214, 249, 0.5);
+  background-color: rgb(43, 43, 44);
 }
 @supports ((-webkit-backdrop-filter: blur(1rem)) or (backdrop-filter: blur(1rem))) {
   .header .nav {
@@ -627,7 +627,6 @@ button {
   border-radius: 50%;
   background-color: rgba(208, 214, 249, 0.5);
   opacity: 0.5;
-  z-index: -1;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
 }
