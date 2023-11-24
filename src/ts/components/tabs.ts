@@ -1,6 +1,8 @@
 // Imports
 import { formatValue, keyPressed } from "./../base/helpers.js";
 
+import { tabData, tabInterface } from "../ts/_interfaces.js";
+
 // Global Variables
 let currentPage: string;
 const Tabs: Tab[] = [];

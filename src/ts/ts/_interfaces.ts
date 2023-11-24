@@ -1,5 +1,5 @@
 // Interfaces
-interface tabInterface {
+export interface tabInterface {
 
     name: string,
     link: HTMLAnchorElement,
@@ -15,7 +15,7 @@ interface tabInterface {
 
 }
 
-interface tabData {
+export interface tabData {
 
     name: string,
     description: string,

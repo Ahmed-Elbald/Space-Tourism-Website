@@ -24,7 +24,7 @@ const paths = {
     },
 
     ts: {
-        src: "./src/ts/**/*.ts",
+        src: ["./src/ts/**/*.ts", "!./src/ts/ts/**"],
         dest: "./dist/js",
     },
 
