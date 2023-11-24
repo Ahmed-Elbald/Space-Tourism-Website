@@ -1,0 +1,25 @@
+@use "./../abstracts/" as *;
+
+:root {
+  --containerInlinePadding: var(--spacer-500);
+
+  @include min-mq(mobile) {
+    --containerInlinePadding: var(--spacer-900);
+  }
+
+  @include min-mq(tablet) {
+    --containerInlinePadding: 1fr;
+    --containerBreakoutWidth: 5rem;
+    --contentWidth: min(calc(#{map-get($breakpoints, tablet)} + 200px), 80%);
+  }
+}
+
+.l-container {
+  display: grid;
+  grid-template-columns:
+    [grid-start] var(--containerInlinePadding)
+    [breakout-start] var(--containerBreakoutWidth, 0)
+    [content-start] var(--contentWidth, 1fr) [content-end]
+    var(--containerBreakoutWidth, 0) [breakout-end]
+    var(--containerInlinePadding) [grid-end];
+}

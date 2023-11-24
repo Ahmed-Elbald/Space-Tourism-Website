@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    @@include("./templates/meta/_head.html", {
+    pageForLinks: "crew",
+    page: "Crew"
+    })
+
+</head>
+<body>
+
+    <!-- Accessibility -->
+    @@include("./templates/components/_a11y.html")
+
+    <!-- Site Header -->
+    @@include("./templates/layout/_header.html", {
+    currentPage: "crew"
+    })
+
+    <!-- Main -->
+    <main class="main l-container" id="main-content">
+        <div class="main__inner">
+
+            <!-- Page Heading -->
+            @@include("./templates/components/_pageHeading.html", {
+            number: 2,
+            text: "meet your crew"
+            })
+
+            <!-- Page Tabs -->
+            <div class="c-tabs js-tabs" data-page="crew">
+                <div class="l-content-holder l-grid-switch"
+                    style="--rowGap: var(--spacer-700); --columnGap: var(--spacer-1000)">
+
+
+                    <div class="c-tabs__content js-tabs-content">
+
+                        <!-- Tablist -->
+                        @@include("./templates/components/_tablistHint.html")
+                        <ul class="c-tabs__tablist js-tablist" aria-labelledby="page-heading">
+                            <li>
+                                <a href="#douglas-hurley-panel" class="c-tabs__link" id="douglas-hurley-tab">
+                                    <span class="u-sr-only">douglas hurley</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#mark-shuttleworth-panel" class="c-tabs__link" id="mark-shuttleworth-tab">
+                                    <span class="u-sr-only">mark shuttleworth</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#victor-glover-panel" class="c-tabs__link" id="victor-glover-tab">
+                                    <span class="u-sr-only">victor glover</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#anousheh-ansari-panel" class="c-tabs__link" id="anousheh-ansari-tab">
+                                    <span class="u-sr-only">anousheh ansari</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Panels -->
+                        <dl class="c-tabs__panels js-panels">
+                            <div class="c-tabs__panel" id="douglas-hurley-panel" aria-describedby="douglas-hurley-tab">
+                                <dt class="u-text-uppercase u-text-neu-200 u-fs-700 u-ff-sec">Commander</dt>
+                                <dd>
+                                    <b class="u-keyword u-fs-900 u-pt-200 u-pb-400">Douglas Hurley</b>
+                                    Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former
+                                    NASA astronaut. He launched into space for the third time as commander of Crew
+                                    Dragon Demo-2.
+                                </dd>
+                            </div>
+                            <div class="c-tabs__panel" id="mark-shuttleworth-panel"
+                                aria-describedby="mark-shuttleworth-tab">
+                                <dt class="u-text-uppercase u-text-neu-200 u-fs-700 u-ff-sec">Mission Specialist</dt>
+                                <dd>
+                                    <b class="u-keyword u-fs-900 u-pt-200 u-pb-400">Mark Shuttleworth</b>
+                                    Mark Richard Shuttleworth is the founder and CEO of Canonical, the company behind
+                                    the Linux-based Ubuntu operating system. Shuttleworth became the first South African
+                                    to travel to space as a space tourist.
+                                </dd>
+                            </div>
+                            <div class="c-tabs__panel" id="victor-glover-panel" aria-describedby="victor-glover-tab">
+                                <dt class="u-text-uppercase u-text-neu-200 u-fs-700 u-ff-sec">Pilot</dt>
+                                <dd>
+                                    <b class="u-keyword u-fs-900 u-pt-200 u-pb-400">Victor Glover</b>
+                                    Pilot on the first operational flight of the SpaceX Crew Dragon to the International
+                                    Space Station. Glover is a commander in the U.S. Navy where he pilots an F/A-18.He
+                                    was a crew member of Expedition 64, and served as a station systems flight engineer.
+                                </dd>
+                            </div>
+                            <div class="c-tabs__panel" id="anousheh-ansari-panel"
+                                aria-describedby="anousheh-ansari-tab">
+                                <dt class="u-text-uppercase u-text-neu-200 u-fs-700 u-ff-sec">Flight Engineer</dt>
+                                <dd>
+                                    <b class="u-keyword u-fs-900 u-pt-200 u-pb-400">Anousheh Ansari</b>
+                                    Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems.
+                                    Ansari was the fourth self-funded space tourist, the first self-funded woman to fly
+                                    to the ISS, and the first Iranian in space.
+                                </dd>
+                            </div>
+                        </dl>
+
+                    </div>
+
+                    <!-- Images -->
+                    <div class="c-tabs__imgs js-tabs-imgs"></div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

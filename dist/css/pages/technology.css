@@ -1,0 +1,137 @@
+body {
+  --bodyBgImg: url("./../assets/images/technology/background-technology-mobile.jpg");
+}
+@media (min-width: 576px) {
+  body {
+    --bodyBgImg: url("./../assets/images/technology/background-technology-tablet.jpg");
+  }
+}
+@media (min-width: 992px) {
+  body {
+    --bodyBgImg: url("./../assets/images/technology/background-technology-desktop.jpg");
+  }
+}
+
+.main__inner {
+  grid-column: grid;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+@media (min-width: 992px) {
+  .main__inner {
+    grid-column: content-start/grid-end;
+  }
+}
+.main .c-page-heading {
+  grid-column: content-start;
+}
+.main .c-tabs {
+  grid-column: content;
+}
+.main .c-tabs[data-js-enabled=true] {
+  grid-column: 1/-1;
+}
+.main .c-tabs__tablist {
+  counter-reset: tabs;
+  --clusterSpacer: var(--spacer-500);
+  padding-block: var(--spacer-500);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: var(--clusterSpacer);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.main .c-tabs__link {
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid hsl(var(--clr-neu-200));
+  color: hsl(var(--clr-neu-100));
+  font-family: var(--ff-sec);
+}
+.main .c-tabs__link:hover:not([aria-selected=true]) {
+  border-color: currentColor;
+}
+.main .c-tabs__link:focus {
+  outline-color: hsl(var(--clr-neu-100));
+}
+.main .c-tabs__link[aria-selected=true] {
+  background-color: hsl(var(--clr-neu-100));
+  color: hsl(var(--clr-neu-700));
+}
+.main .c-tabs__link::before {
+  content: counter(tabs);
+  counter-increment: tabs;
+}
+.main .c-tabs__panel::before {
+  content: "the termenology ...";
+  display: block;
+  margin-bottom: -0.75rem;
+  font-size: var(--fs-400);
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+}
+.main .c-tabs__imgs {
+  width: 100%;
+  max-height: 70vh;
+}
+.main .c-tabs__imgs > img {
+  -o-object-fit: none;
+     object-fit: none;
+}
+.main .c-tabs__imgs > img[data-view=portrait] {
+  display: none;
+}
+@media (min-width: 576px) {
+  .main .c-tabs__imgs > img {
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media (min-width: 992px) {
+  .main .c-tabs__imgs > img[data-view=portrait] {
+    display: block;
+  }
+  .main .c-tabs__imgs > img[data-view=landscape] {
+    display: none;
+  }
+}
+.main .c-tabs[data-js-enabled=true] .c-tabs__content {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+@media (min-width: 992px) {
+  .main .c-tabs[data-js-enabled=true] .c-tabs__content {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    -webkit-column-gap: var(--spacer-700);
+       -moz-column-gap: var(--spacer-700);
+            column-gap: var(--spacer-700);
+  }
+}
+@media (min-width: 992px) {
+  .main .c-tabs[data-js-enabled=true] .c-tabs__tablist {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}

@@ -1,0 +1,64 @@
+@use "./../abstracts/" as *;
+
+@include setBodyBg("crew");
+
+.main {
+  &__inner {
+    grid-column: content;
+  }
+
+  .c-tabs {
+    &__content {
+      padding-block-end: var(--spacer-800);
+    }
+
+    &__tablist {
+      --clusterSpacer: var(--spacer-500);
+      padding-block-end: var(--spacer-600);
+      @include flexCluster();
+    }
+
+    &__link {
+      @include circle(0.75em);
+      background-color: hsl(var(--clr-neu-200));
+
+      &:hover {
+        background-color: var(--linkHoverClr);
+      }
+
+      &[aria-selected="true"] {
+        background-color: hsl(var(--clr-neu-100));
+      }
+    }
+
+    &__imgs {
+      height: clamp(400px, 300px + 15vw, 600px);
+      @include max-mq(mobile) {
+        border-bottom: 1px solid hsl(var(--clr-neu-200));
+      }
+    }
+  }
+
+  @include jsEnabled(content) {
+    align-self: center;
+    display: grid;
+    order: 2;
+
+    @include min-mq(mobile) {
+      padding-block-end: 0;
+      order: -1;
+    }
+  }
+
+  @include jsEnabled(tablist) {
+    padding-block: var(--spacer-600);
+    @include min-mq(mobile) {
+      order: 2;
+    }
+
+    @include min-mq(tablet) {
+      padding-block-start: var(--spacer-1000);
+      padding-block-end: var(--spacer-900);
+    }
+  }
+}

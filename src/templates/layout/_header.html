@@ -1,0 +1,69 @@
+<header class="c-main-header l-container">
+    <div class="c-main-header__inner">
+
+        <!-- Logo -->
+        <a href="./" class="c-main-header__logo">
+            <img src="./assets/images/shared/logo.svg" alt="SpaceY">
+        </a>
+
+        <!-- Navigation -->
+        <nav class="c-main-nav" data-page="@@currentPage" id="main-nav">
+
+            <!-- Navigation Open Button -->
+            <button class="c-main-nav__open js-main-nav-open" aria-controls="main-nav-list" aria-expanded="false"
+                type="button">
+                <span class="u-sr-only">
+                    Open the navigation
+                </span>
+                <img src="./assets/images/shared/icon-hamburger.svg" alt="">
+            </button>
+
+            <div class="c-main-nav__inner">
+
+                <!-- Navigation Close Button -->
+                <button class="c-main-nav__close js-main-nav-close" aria-controls="main-nav-list" aria-expanded="false"
+                    type="button">
+                    <span class="u-sr-only">
+                        Close the navigation
+                    </span>
+                    <img src="./assets/images/shared/icon-close.svg" alt="">
+                </button>
+
+                <!-- Navigation List -->
+                <ul class="c-main-nav__list" id="main-nav-list">
+                    <li class="c-main-nav__link">
+                        <a href="./index.html" aria-current="@@if (context.currentPage === 'home') {page}">
+                            <span aria-hidden="true"></span>
+                            home
+                            <span class="u-sr-only"> page</span>
+                        </a>
+                    </li>
+                    <li class="c-main-nav__link">
+                        <a href="./destination.html" aria-current="@@if (context.currentPage === 'dest') {page}">
+                            <span aria-hidden="true"></span>
+                            destination
+                            <span class="u-sr-only"> page</span>
+                        </a>
+                    </li>
+                    <li class="c-main-nav__link">
+                        <a href="./crew.html" aria-current="@@if (context.currentPage === 'crew') {page}">
+                            <span aria-hidden="true"></span>
+                            crew
+                            <span class="u-sr-only"> page</span>
+                        </a>
+                    </li>
+                    <li class="c-main-nav__link">
+                        <a href="./technology.html" aria-current="@@if (context.currentPage === 'tech') {page}">
+                            <span aria-hidden="true"></span>
+                            technology
+                            <span class="u-sr-only"> page</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+
+    </div>
+</header>

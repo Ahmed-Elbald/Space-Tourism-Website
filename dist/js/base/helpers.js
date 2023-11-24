@@ -1,0 +1,1 @@
+export function formatValue(e){return e.toLowerCase().replace(" ","-")}export function keyPressed(e,r){if(e.key===r||e.code===r)return!0}

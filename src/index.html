@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    @@include("./templates/meta/_head.html", {
+    pageForLinks: "home",
+    page: "Home"
+    })
+
+</head>
+<body>
+
+    <!-- Accessibility -->
+    @@include("./templates/components/_a11y.html")
+
+    <!-- Site Header -->
+    @@include("./templates/layout/_header.html", {
+    currentPage: "home"
+    })
+
+    <!-- Main -->
+    <main class="main l-container" data-end-padded id="main-content">
+        <div class="main__inner">
+            <div class="l-content-holder l-grid-switch" style="--rowGap: var(--spacer-1000)">
+
+                <div>
+                    <!-- Page Heading -->
+                    <h1 class="u-pt-1000">
+                        <span class="u-fs-600 u-text-uppercase">
+                            so, you want to travel to
+                        </span> <br>
+                        <b class="u-fs-1100 u-keyword">space</b>
+                    </h1>
+                    <!-- Page Statement -->
+                    <p>
+                        Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not
+                        hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of
+                        this
+                        world experience!
+                    </p>
+                </div>
+
+                <!-- Explore Link -->
+                <div class="exp-link">
+                    <a href="./destination.html">
+                        explore
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

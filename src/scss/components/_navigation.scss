@@ -1,0 +1,154 @@
+@use "./../abstracts/" as *;
+
+.c-main-nav {
+  --bgClr: hsl(var(--clr-neu-100) / 0.05);
+  --blurValue: blur(1rem);
+  --inlinePadding: var(--containerInlinePadding);
+  --navLineBg: hsl(var(--clr-neu-200));
+  --navLineHeight: 0;
+
+  position: relative;
+  justify-self: flex-end;
+
+  @include min-mq(mobile) {
+    grid-column: content-start / grid-end;
+    display: grid;
+    grid-template-columns: subgrid;
+
+    &::before {
+      @include pseudoElement("");
+      grid-column: content-end / -1;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bgClr);
+      backdrop-filter: var(--blurValue);
+    }
+  }
+
+  &[data-page="home"]::before {
+    @include minmax-mq(mobile, tablet) {
+      display: none;
+    }
+  }
+
+  &::after {
+    @include pseudoElement("");
+    grid-column: content;
+    width: 100%;
+    height: var(--navLineHeight);
+    top: 50%;
+    inset-inline-start: 0;
+    transform: translateY(-50%);
+    background-color: var(--navLineBg);
+  }
+  @include min-mq(tablet) {
+    --inlinePadding: var(--spacer-1000);
+    --navLineHeight: 1px;
+  }
+
+  &__open,
+  &__close {
+    padding: var(--spacer-300);
+    @include min-mq(mobile) {
+      display: none;
+    }
+  }
+
+  &__open[aria-expanded="true"] {
+    visibility: hidden;
+  }
+
+  &__inner {
+    position: relative;
+    justify-self: end;
+    padding-inline-start: var(--inlinePadding);
+    background-color: var(--bgClr);
+    backdrop-filter: var(--blurValue);
+    z-index: 1;
+
+    @include max-mq(mobile) {
+      position: fixed;
+      top: 0;
+      inset-inline-end: 0;
+      transform: translateX(100%);
+      visibility: hidden;
+      height: 100vh;
+      padding-top: var(--spacer-1200);
+    }
+
+    &::after {
+      @include pseudoElement("");
+      width: calc(var(--inlinePadding) / 2);
+      height: var(--navLineHeight);
+      top: 50%;
+      inset-inline-start: 0;
+      transform: translateY(-50%);
+      background-color: var(--navLineBg);
+    }
+  }
+
+  &[data-page="home"] &__inner {
+    @include minmax-mq(mobile, tablet) {
+      padding-inline: var(--inlinePadding);
+    }
+  }
+
+  &.js-show-up &__inner {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  &__close {
+    position: absolute;
+    top: var(--headerTopOffset);
+    inset-inline-end: var(--containerInlinePadding);
+  }
+
+  &__list {
+    counter-reset: navCounter -1;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacer-400);
+    column-gap: var(--spacer-600);
+
+    @include min-mq(mobile) {
+      flex-direction: row;
+    }
+  }
+
+  &__link {
+    --border: 2px solid transparent;
+    position: relative;
+    padding-inline-end: var(--spacer-1000);
+    border-inline-end: var(--border);
+    color: hsl(var(--clr-neu-100));
+    font-size: var(--fs-400);
+    letter-spacing: 2.7px;
+    text-transform: uppercase;
+
+    @include min-mq(mobile) {
+      padding-block: var(--spacer-700);
+      padding-inline-end: 0;
+      border-inline-end: none;
+      border-bottom: var(--border);
+    }
+
+    &:has(a[aria-current="page"]) {
+      border-color: currentColor;
+    }
+
+    &:hover {
+      border-color: var(--linkHoverClr);
+    }
+
+    span[aria-hidden="true"]::before {
+      content: "0" counter(navCounter);
+      counter-increment: navCounter;
+      padding-inline-end: 2px;
+
+      @include minmax-mq(mobile, tablet) {
+        display: none;
+      }
+    }
+  }
+}

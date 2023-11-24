@@ -1,0 +1,137 @@
+@use "./../abstracts/" as *;
+
+/* Global */
+:root {
+  --bodyTxtClr: hsl(var(--clr-neu-300));
+
+  --scrollbarWidth: 0.5rem;
+  --scrollbarThumbBg: hsl(var(--clr-neu-100));
+  --scrollbarTrackBg: hsl(var(--clr-pr-700));
+
+  --focusOutlineWidth: 2px;
+  --inputOutlineStyle: solid;
+  --ControlOutlineStyle: dashed;
+  --linkOutlineOffset: 3px;
+
+  --linkHoverClr: hsl(var(--clr-neu-300) / 0.25);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: var(--scrollbarThumbBg);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbarTrackBg);
+}
+
+::selection {
+  background-color: hsl(var(--clr-neu-100));
+  color: hsl(var(--clr-pr-700));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition-duration: 125ms;
+
+  @media (prefers-reduced-motion: true) {
+    transition-duration: 0ms;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+body {
+  background-image: var(--bodyBgImg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: var(--bodyTxtClr);
+  font-family: var(--ff-pr);
+  font-size: var(--fs-500);
+  letter-spacing: 0px;
+  line-height: 2;
+}
+
+input,
+button,
+textarea,
+a {
+  outline-width: var(--focusOutlineWidth);
+  outline-color: transparent;
+
+  &:focus-visible {
+    outline-color: currentColor;
+    border: none !important;
+    text-decoration: none !important;
+  }
+
+  @supports not selector(:focus-visible) {
+    &:focus {
+      outline-color: currentColor;
+      border: none !important;
+      text-decoration: none !important;
+    }
+  }
+}
+
+input,
+button,
+textarea {
+  display: block;
+  border: none;
+  outline-offset: calc(-1 * var(--focusOutlineWidth));
+}
+
+input,
+textarea {
+  outline-style: var(--inputOutlineStyle);
+}
+
+a,
+button {
+  outline-style: var(--ControlOutlineStyle);
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  background-color: transparent;
+  color: inherit;
+  text-align: unset;
+  cursor: pointer;
+
+  > * {
+    pointer-events: none;
+  }
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: inherit;
+  color: inherit;
+  outline-offset: var(--linkOutlineOffset);
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

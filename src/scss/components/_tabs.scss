@@ -1,0 +1,43 @@
+@use "./../abstracts/" as *;
+
+.c-tabs {
+  &__tablist {
+    @include min-mq(tablet) {
+      justify-content: flex-start !important;
+    }
+  }
+
+  &__panels {
+    --marginSpacer: var(--spacer-1000);
+    @include marginSpacer();
+  }
+
+  &__panel:focus {
+    outline: none;
+  }
+
+  &__imgs {
+    &:empty {
+      display: none;
+    }
+
+    img {
+      &:not(.js-show-up) {
+        display: none !important;
+      }
+
+      &.js-show-up {
+        display: block;
+      }
+    }
+  }
+}
+
+@include jsEnabled(panel) {
+  display: none;
+  margin-block-start: 0;
+
+  &.js-show-up {
+    display: block;
+  }
+}

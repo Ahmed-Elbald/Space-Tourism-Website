@@ -1,0 +1,44 @@
+// Imprted files
+
+// Abstracts
+@use "./abstracts" as *;
+
+// Base
+@use "./base";
+
+/* Vendors */
+@use "./vendor";
+
+/* Layout */
+@use "./layout";
+
+/* Components */
+@use "./components";
+
+/* Custom Styles */
+.main {
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block-start: var(--spacer-1000);
+
+  @include min-mq(mobile) {
+    padding-block-start: calc(
+      var(--mainHeaderHeight, 80px) + var(--paddingTop, var(--spacer-200))
+    );
+  }
+
+  @include min-mq(tablet) {
+    --paddingTop: var(--spacer-1000);
+  }
+
+  &[data-end-padded] {
+    padding-block-end: var(--spacer-1000);
+    @include min-mq(tablet) {
+      padding-block-end: var(--spacer-1200);
+    }
+  }
+
+  &__inner {
+    height: max-content;
+  }
+}

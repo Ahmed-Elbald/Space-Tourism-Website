@@ -1,0 +1,31 @@
+@use "./../abstracts/" as *;
+
+@include setBodyBg("home");
+
+.main {
+  &__inner {
+    grid-column: content;
+  }
+
+  .exp-link {
+    @include min-mq(tablet) {
+      align-self: flex-end;
+      justify-self: flex-end;
+    }
+
+    a {
+      --linkOutlineOffset: calc(var(--focusOutlineWidth) * -1);
+      @include circle(10em);
+      @include flexCentering();
+      background-color: hsl(var(--clr-neu-100));
+      color: hsl(var(--clr-neu-700));
+      font-family: var(--ff-sec);
+      font-size: var(--fs-600);
+      text-transform: uppercase;
+
+      &:hover {
+        box-shadow: 0 0 0 2.5rem var(--linkHoverClr);
+      }
+    }
+  }
+}

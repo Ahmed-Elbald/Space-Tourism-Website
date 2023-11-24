@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    @@include("./templates/meta/_head.html", {
+    pageForLinks: "destination",
+    page: "Destination"
+    })
+
+</head>
+<body>
+
+    <!-- Accessibility -->
+    @@include("./templates/components/_a11y.html")
+
+    <!-- Site Header -->
+    @@include("./templates/layout/_header.html", {
+    currentPage: "dest"
+    })
+
+    <!-- Main -->
+    <main class="main l-container" data-end-padded id="main-content">
+        <div class="main__inner">
+
+            <!-- Page Heading -->
+            @@include("./templates/components/_pageHeading.html", {
+            number: 1,
+            text: "pick your destination"
+            })
+
+            <!-- Page Tabs -->
+            <div class="js-tabs c-tabs" data-page="destinations">
+                <div class="l-content-holder l-grid-switch" style="--rowGap: var(--spacer-700)">
+
+                    <div class="c-tabs__content js-tabs-content">
+
+                        <!-- Tablist -->
+                        @@include("./templates/components/_tablistHint.html")
+                        <ul class="c-tabs__tablist js-tablist" aria-labelledby="page-heading">
+                            <li>
+                                <a href="#moon-panel" class="c-tabs__link" id="moon-tab">
+                                    moon
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#mars-panel" class="c-tabs__link" id="mars-tab">
+                                    mars
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#europa-panel" class="c-tabs__link" id="europa-tab">
+                                    europa
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#titan-panel" class="c-tabs__link" id="titan-tab">
+                                    titan
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Panels -->
+                        <div class="c-tabs__panels js-panels">
+
+                            <section class="c-tabs__panel" id="moon-panel" aria-describedby="moon-tab">
+                                <h2 class="js-destination-name u-keyword u-py-300 u-fs-1000">Moon</h2>
+                                <p class="js-destination-desc">See our planet as you’ve never seen it before. A perfect
+                                    relaxing trip away to help regain perspective and come back refreshed. While you’re
+                                    there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.</p>
+                                <dl class="c-tabs__panel__details">
+                                    <div>
+                                        <dt class="u-text-uppercase u-fs-400 u-pb-200">avg. distance</dt>
+                                        <dd class="u-keyword u-fs-700">384,400 km</dd>
+                                    </div>
+                                    <div>
+                                        <dt class="u-text-uppercase u-fs-400 u-pb-200">Est. travel time</dt>
+                                        <dd class="u-keyword u-fs-700">3 days</dd>
+                                    </div>
+                                </dl>
+                            </section>
+
+                            <section class="c-tabs__panel" id="mars-panel" aria-describedby="mars-tab">
+                                <h2 class="js-destination-name u-keyword u-py-300 u-fs-1000">Mars</h2>
+                                <p class="js-destination-desc">Don’t forget to pack your hiking boots. You’ll need them
+                                    to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two
+                                    and a half times the size of Everest!</p>
+                                <dl class="c-tabs__panel__details">
+                                    <div>
+                                        <dt class="u-text-uppercase u-fs-400 u-pb-200">avg. distance</dt>
+                                        <dd class="u-keyword u-fs-700">225 mil. km</dd>
+                                    </div>
+                                    <div>
+                                        <dt class="u-text-uppercase u-fs-400 u-pb-200">Est. travel time</dt>
+                                        <dd class="u-keyword u-fs-700">9 months</dd>
+                                    </div>
+                                </dl>
+                            </section>
+
+                            <section class="c-tabs__panel" id="europa-panel" aria-describedby="europa-tab">
+                                <h2 class="js-destination-name u-keyword u-py-300 u-fs-1000">Europa</h2>
+                                <p class="js-destination-desc">The smallest of the four Galilean moons orbiting Jupiter,
+                                    Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice
+                                    skating, curling, hockey, or simple relaxation in your snug wintery cabin.</p>
+                                <dl class="c-tabs__panel__details">
+                                    <div>
+                                        <dt class="u-text-uppercase u-fs-400 u-pb-200">avg. distance</dt>
+                                        <dd class="u-keyword u-fs-700">628 mil. km</dd>
+                                    </div>
+                                    <div>
+                                        <dt class="u-text-uppercase u-fs-400 u-pb-200">Est. travel time</dt>
+                                        <dd class="u-keyword u-fs-700">3 years</dd>
+                                    </div>
+                                </dl>
+                            </section>
+
+                            <section class="c-tabs__panel" id="titan-panel" aria-describedby="titan-tab">
+                                <h2 class="js-destination-name u-keyword u-py-300 u-fs-1000">Titan</h2>
+                                <p class="js-destination-desc">The only moon known to have a dense atmosphere other than
+                                    Earth, Titan is a home away from home (just a few hundred degrees colder!). As a
+                                    bonus, you get striking views of the Rings of Saturn.</p>
+                                <dl class="c-tabs__panel__details">
+                                    <div>
+                                        <dt class="u-text-uppercase u-fs-400 u-pb-200">avg. distance</dt>
+                                        <dd class="u-keyword u-fs-700">1.6 bil. km</dd>
+                                    </div>
+                                    <div>
+                                        <dt class="u-text-uppercase u-fs-400 u-pb-200">Est. travel time</dt>
+                                        <dd class="u-keyword u-fs-700">7 years</dd>
+                                    </div>
+                                </dl>
+                            </section>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Images -->
+                    <div class="c-tabs__imgs js-tabs-imgs" data-page="dest"></div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

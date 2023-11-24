@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    @@include("./templates/meta/_head.html", {
+    pageForLinks: "technology",
+    page: "Technology"
+    })
+
+</head>
+<body>
+
+    <!-- Accessibility -->
+    @@include("./templates/components/_a11y.html")
+
+    <!-- Site Header -->
+    @@include("./templates/layout/_header.html", {
+    currentPage: "tech"
+    })
+
+    <!-- Main -->
+    <main class="main l-container" data-end-padded id="main-content">
+        <div class="main__inner">
+
+            <!-- Page Heading -->
+            @@include("./templates/components/_pageHeading.html", {
+            number: 3,
+            text: "space launch 101"
+            })
+
+            <!-- Page Tabs -->
+            <div class="c-tabs js-tabs" data-page="technology">
+                <div class="l-grid-switch" style="--rowGap: var(--spacer-700); --columnGap: var(--spacer-1000)">
+
+                    <div class="c-tabs__content l-content-holder js-tabs-content">
+
+                        <!-- Tablist -->
+                        @@include("./templates/components/_tablistHint.html")
+                        <ul class="c-tabs__tablist js-tablist" aria-labelledby="page-heading">
+                            <li role="presentation">
+                                <a href="#launch-vehicle-panel" class="c-tabs__link" id="launch-vehicle-tab">
+                                    <span class="u-sr-only">launch vehicle</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#spaceport-panel" class="c-tabs__link" id="spaceport-tab">
+                                    <span class="u-sr-only">spaceport</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#launch-vehicle-panel" class="c-tabs__link" id="launch-vehicle-tab">
+                                    <span class="u-sr-only">launch vehicle</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Panels -->
+                        <dl class="c-tabs__panels js-panels">
+                            <div class="c-tabs__panel" id="launch-vehicle-panel" aria-describedby="launch-vehicle-tab">
+                                <dt class="u-text-uppercase u-text-neu-100 u-fs-900 u-ff-sec">Launch vehicle</dt>
+                                <dd>A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a
+                                    payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X
+                                    carrier rocket is the most powerful in operation. Standing 150 metres tall, it's
+                                    quite an awe-inspiring sight on the launch pad!</dd>
+                            </div>
+                            <div class="c-tabs__panel" id="spaceport-panel" aria-describedby="spaceport-tab">
+                                <dt class="u-text-uppercase u-text-neu-100 u-fs-900 u-ff-sec">Spaceport</dt>
+                                <dd>A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by
+                                    analogy to the seaport for ships or airport for aircraft. Based in the famous Cape
+                                    Canaveral, our spaceport is ideally situated to take advantage of the Earth’s
+                                    rotation for launch.</dd>
+                            </div>
+                            <div class="c-tabs__panel" id="space-capsule-panel" aria-describedby="space-capsule-tab">
+                                <dt class="u-text-uppercase u-text-neu-100 u-fs-900 u-ff-sec">Space capsule</dt>
+                                <dd>A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule
+                                    to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend
+                                    your time during the flight. It includes a space gym, cinema, and plenty of other
+                                    activities to keep you entertained.</dd>
+                            </div>
+                        </dl>
+
+                    </div>
+
+                    <!-- Images -->
+                    <div class="c-tabs__imgs js-tabs-imgs"></div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

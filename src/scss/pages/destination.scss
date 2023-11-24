@@ -1,0 +1,61 @@
+@use "./../abstracts/" as *;
+
+@include setBodyBg("destination");
+
+.main {
+  &__inner {
+    grid-column: content;
+  }
+
+  .c-tabs {
+    &__content {
+      order: 2;
+    }
+
+    &__tablist {
+      --clusterSpacer: var(--spacer-700);
+      @include flexCluster();
+    }
+
+    &__link {
+      padding-block: var(--spacer-200);
+      border-bottom: 2px solid transparent;
+      text-transform: uppercase;
+      font-size: var(--fs-400);
+
+      &:hover {
+        border-color: var(--linkHoverClr);
+      }
+      &[aria-selected="true"] {
+        color: hsl(var(--clr-neu-100));
+        border-color: currentColor;
+      }
+    }
+
+    &__panel__details {
+      padding-block-start: var(--spacer-600);
+      margin-block-start: var(--spacer-800);
+      border-top: 1px solid hsl(var(--clr-neu-200));
+      display: grid;
+      justify-items: center;
+      row-gap: var(--spacer-700);
+
+      @include min-mq(mobile) {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+      }
+      @include min-mq(tablet) {
+        justify-items: flex-start;
+      }
+    }
+
+    &__imgs {
+      width: 70%;
+      @include min-mq(tablet) {
+        width: 80%;
+        justify-self: center;
+        align-self: center;
+      }
+    }
+  }
+}

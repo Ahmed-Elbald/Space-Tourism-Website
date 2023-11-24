@@ -1,0 +1,113 @@
+@use "./../abstracts/" as *;
+
+@include setBodyBg("technology");
+
+.main {
+  &__inner {
+    grid-column: grid;
+    display: grid;
+    grid-template-columns: subgrid;
+
+    @include min-mq(tablet) {
+      grid-column: content-start / grid-end;
+    }
+  }
+
+  .c-page-heading {
+    grid-column: content-start;
+  }
+
+  .c-tabs {
+    grid-column: content;
+
+    &[data-js-enabled="true"] {
+      grid-column: 1/-1;
+    }
+
+    &__tablist {
+      counter-reset: tabs;
+      --clusterSpacer: var(--spacer-500);
+      padding-block: var(--spacer-500);
+      @include flexCluster();
+    }
+
+    &__link {
+      @include circle(3em);
+      @include flexCentering();
+      border: 1px solid hsl(var(--clr-neu-200));
+      color: hsl(var(--clr-neu-100));
+      font-family: var(--ff-sec);
+
+      &:hover:not([aria-selected="true"]) {
+        border-color: currentColor;
+      }
+
+      &:focus {
+        outline-color: hsl(var(--clr-neu-100));
+      }
+
+      &[aria-selected="true"] {
+        background-color: hsl(var(--clr-neu-100));
+        color: hsl(var(--clr-neu-700));
+      }
+
+      &::before {
+        content: counter(tabs);
+        counter-increment: tabs;
+      }
+    }
+
+    &__panel::before {
+      content: "the termenology ...";
+      display: block;
+      margin-bottom: -0.75rem;
+      font-size: var(--fs-400);
+      text-transform: uppercase;
+      letter-spacing: 2.7px;
+    }
+
+    &__imgs {
+      width: 100%;
+      max-height: 70vh;
+
+      > img {
+        object-fit: none;
+
+        &[data-view="portrait"] {
+          display: none;
+        }
+
+        @include min-mq(mobile) {
+          object-fit: cover;
+        }
+
+        @include min-mq(tablet) {
+          &[data-view="portrait"] {
+            display: block;
+          }
+          &[data-view="landscape"] {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include jsEnabled(content) {
+    order: 2;
+
+    @include min-mq(tablet) {
+      order: -1;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: auto;
+      column-gap: var(--spacer-700);
+    }
+  }
+
+  @include jsEnabled(tablist) {
+    @include min-mq(tablet) {
+      flex-direction: column;
+    }
+  }
+}

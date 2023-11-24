@@ -1,0 +1,20 @@
+@use "./../abstracts/" as *;
+
+.c-page-heading {
+  padding-block-start: var(--spacer-700);
+  padding-block-end: var(--spacer-700);
+  color: hsl(var(--clr-neu-100));
+  text-align: center;
+  text-transform: uppercase;
+  font-size: var(--fs-700);
+
+  @include min-mq(mobile) {
+    text-align: unset;
+  }
+
+  &__number {
+    padding-inline-end: var(--spacer-200);
+    color: hsl(var(--clr-neu-200));
+    letter-spacing: 2.7px;
+  }
+}
