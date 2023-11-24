@@ -205,7 +205,7 @@ async function handleTabsCreation() {
 
 async function getTabsDate() {
 
-    return fetch("../assets/data/data.json")
+    return fetch("./assets/data/data.json")
         .then(data => data.json())
         .then(tabs => tabs[currentPage]);
 
