@@ -318,9 +318,17 @@ function addLinkInteractivity(this: Tab) {
             else
                 Tabs[currentTabIndex - 1].link.focus();
 
+        }
+        // If the Home key was pressed
+        else if (keyPressed(keydownEvent, "Home"))
+            Tabs[0].link.focus();
 
-            // If the tab key was pressed
-        } else if (keyPressed(keydownEvent, "Tab")) {
+        // If the End key was pressed
+        else if (keyPressed(keydownEvent, "End"))
+            Tabs[numberOfTabs - 1].link.focus();
+
+        // If the tab key was pressed
+        else if (keyPressed(keydownEvent, "Tab")) {
 
             // Show the corresponding tab panel
             keydownEvent.preventDefault();
