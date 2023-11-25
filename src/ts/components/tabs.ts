@@ -1,14 +1,14 @@
 // Imports
 import { formatValue, keyPressed } from "./../base/helpers.js";
 
-import { tabData, tabInterface } from "../ts/_interfaces.js";
+import { ITab, ITabData, IDestinationTabData, ICrewTabData } from "../ts/_interfaces.js";
 
 // Global Variables
 let currentPage: string;
 const Tabs: Tab[] = [];
 
 // Classes
-class Tab implements tabInterface {
+class Tab implements ITab {
 
     // A counter for the tabs
     static currentTab = 0;
@@ -21,11 +21,11 @@ class Tab implements tabInterface {
 
     // Public Methods
     public createLink!: () => void;
-    public createPanel!: (tabData: tabData) => void;
-    public createImgs!: (tabData: tabData) => void;
+    public createPanel!: (tabData: ITabData) => void;
+    public createImgs!: (tabData: ITabData) => void;
     public show!: () => void;
 
-    constructor(tabData: tabData) {
+    constructor(tabData: ITabData) {
 
         // Set object properties
         this.name = tabData["name"];
@@ -36,7 +36,7 @@ class Tab implements tabInterface {
 
     };
 
-    init(tabData: tabData) {
+    init(tabData: ITabData) {
 
         // Create the tab's associated elements
         this.createLink();
@@ -93,14 +93,14 @@ Tab.prototype.createLink = function () {
 
 }
 
-Tab.prototype.createPanel = function (tabData: tabData) {
+Tab.prototype.createPanel = function (tabData: ITabData | IDestinationTabData | ICrewTabData) {
 
     let panel: any;
 
     if (currentPage === "destinations")
-        panel = createDestinationPanel(tabData);
+        panel = createDestinationPanel(tabData as IDestinationTabData);
     else if (currentPage === "crew")
-        panel = createCrewMemberPanel(tabData)
+        panel = createCrewMemberPanel(tabData as ICrewTabData)
     else
         panel = createTermPanel(tabData)
 
@@ -111,10 +111,12 @@ Tab.prototype.createPanel = function (tabData: tabData) {
 
 }
 
-Tab.prototype.createImgs = function (tabData: tabData) {
+Tab.prototype.createImgs = function (tabData: ITabData) {
 
     const img = document.createElement("img");
     img.alt = "";
+
+    const tabImgs = tabData["images"]
 
     if (currentPage === "technology") {
 
@@ -122,17 +124,17 @@ Tab.prototype.createImgs = function (tabData: tabData) {
         const portraitImg = img.cloneNode(true) as HTMLImageElement;
 
         landscapeImg.setAttribute("data-view", "landscape");
-        landscapeImg.src = tabData["images"]["landscape"]!;
+        landscapeImg.src = tabImgs["landscape"]!;
 
         portraitImg.setAttribute("data-view", "portrait");
-        portraitImg.src = tabData["images"]["portrait"]!;
+        portraitImg.src = tabImgs["portrait"]!;
 
         this.imgs?.push(landscapeImg, portraitImg);
 
     } else {
 
         const webpImg = img.cloneNode(true) as HTMLImageElement;
-        webpImg.src = tabData["images"]["webp"]!;
+        webpImg.src = tabImgs["webp"]!;
 
         this.imgs?.push(webpImg)
 
@@ -202,7 +204,7 @@ let tabList: HTMLElement | null;
 
 async function handleTabsCreation() {
 
-    const tabsData: tabData[] = await getTabsDate();
+    const tabsData: ITabData[] = await getTabsDate();
     tabsData.forEach(tabData => Tabs.push(new Tab(tabData)))
 
 }
@@ -215,7 +217,7 @@ async function getTabsDate() {
 
 }
 
-function createDestinationPanel(tabData: tabData) {
+function createDestinationPanel(tabData: IDestinationTabData) {
 
     const destinationPanel = document.createElement("section");
     const tabName = tabData["name"];
@@ -241,7 +243,7 @@ function createDestinationPanel(tabData: tabData) {
 
 }
 
-function createCrewMemberPanel(tabData: tabData) {
+function createCrewMemberPanel(tabData: ICrewTabData) {
 
     const crewMemberPanel = document.createElement("div");
 
@@ -260,7 +262,7 @@ function createCrewMemberPanel(tabData: tabData) {
 
 }
 
-function createTermPanel(tabData: tabData) {
+function createTermPanel(tabData: ITabData) {
 
     const crewMemberPanel = document.createElement("dl");
 

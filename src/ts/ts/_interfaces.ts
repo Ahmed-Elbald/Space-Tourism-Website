@@ -1,28 +1,24 @@
 // Interfaces
-export interface tabInterface {
+export interface ITab {
 
     name: string,
     link: HTMLAnchorElement,
     panel: HTMLElement,
     imgs: HTMLImageElement[],
 
-    init: (tabData: tabData) => void;
+    init: (tabData: ITabData) => void;
     createLink: () => void;
-    createPanel: (tabData: tabData) => void;
-    createImgs: (tabData: tabData) => void;
+    createPanel: (tabData: ITabData) => void;
+    createImgs: (tabData: ITabData) => void;
 
     show: () => void;
 
 }
 
-export interface tabData {
+export interface ITabData {
 
     name: string,
     description: string,
-    role?: string,
-    bio?: string,
-    distance?: string,
-    travel?: string,
     images: {
         png?: string,
         webp?: string,
@@ -30,4 +26,14 @@ export interface tabData {
         portrait?: string,
     },
 
+}
+
+export interface IDestinationTabData extends ITabData {
+    distance: string,
+    travel: string,
+}
+
+export interface ICrewTabData extends ITabData {
+    role: string,
+    bio: string,
 }
