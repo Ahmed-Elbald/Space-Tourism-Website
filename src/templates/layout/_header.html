@@ -32,28 +32,32 @@
                 <!-- Navigation List -->
                 <ul class="c-main-nav__list" id="main-nav-list">
                     <li class="c-main-nav__link">
-                        <a href="./index.html" aria-current="@@if (context.currentPage === 'home') {page}">
+                        <a href="./index.html"
+                            aria-current="@@if (context.currentPage === 'home') {page}@@if (context.currentPage !== 'home') {false}">
                             <span aria-hidden="true"></span>
                             home
                             <span class="u-sr-only"> page</span>
                         </a>
                     </li>
                     <li class="c-main-nav__link">
-                        <a href="./destination.html" aria-current="@@if (context.currentPage === 'dest') {page}">
+                        <a href="./destination.html"
+                            aria-current="@@if (context.currentPage === 'dest') {page}@@if (context.currentPage !== 'dest') {false}">
                             <span aria-hidden="true"></span>
                             destination
                             <span class="u-sr-only"> page</span>
                         </a>
                     </li>
                     <li class="c-main-nav__link">
-                        <a href="./crew.html" aria-current="@@if (context.currentPage === 'crew') {page}">
+                        <a href="./crew.html"
+                            aria-current="@@if (context.currentPage === 'crew') {page}@@if (context.currentPage !== 'crew') {false}">
                             <span aria-hidden="true"></span>
                             crew
                             <span class="u-sr-only"> page</span>
                         </a>
                     </li>
                     <li class="c-main-nav__link">
-                        <a href="./technology.html" aria-current="@@if (context.currentPage === 'tech') {page}">
+                        <a href="./technology.html"
+                            aria-current="@@if (context.currentPage === 'tech') {page}@@if (context.currentPage !== 'tech') {false}">
                             <span aria-hidden="true"></span>
                             technology
                             <span class="u-sr-only"> page</span>

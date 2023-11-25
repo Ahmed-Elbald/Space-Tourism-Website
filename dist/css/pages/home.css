@@ -15,6 +15,16 @@ body {
 .main__inner {
   grid-column: content;
 }
+.main h1 {
+  -webkit-padding-before: var(--spacer-300);
+          padding-block-start: var(--spacer-300);
+}
+@media (min-width: 992px) {
+  .main h1 {
+    -webkit-padding-before: var(--spacer-1000);
+            padding-block-start: var(--spacer-1000);
+  }
+}
 @media (min-width: 992px) {
   .main .exp-link {
     -ms-flex-item-align: end;

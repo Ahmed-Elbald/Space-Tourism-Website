@@ -182,6 +182,8 @@ let tabList: HTMLElement | null;
 
         // Set the "data-js-enabled" attribute to true => Change styles (Progressive Enhancement)
         tabsContainer!.setAttribute("data-js-enabled", "true");
+
+        tabList!.role = "tablist"
         tabList!.setAttribute("aria-describedby", "tablist-usage-hint");
 
         // Get the name of the current page
@@ -245,11 +247,13 @@ function createCrewMemberPanel(tabData: tabData) {
 
     crewMemberPanel.innerHTML =
         `
-        <dt class="u-text-uppercase u-text-neu-200 u-fs-700 u-ff-sec">${tabData["role"]}</dt>
-        <dd>
-            <b class="u-keyword u-fs-900 u-pt-200 u-pb-400">${tabData["name"]}</b>
-            ${tabData["bio"]}
-        </dd>
+        <dl>
+            <dt class="u-text-uppercase u-text-neu-200 u-fs-700 u-ff-sec">${tabData["role"]}</dt>
+            <dd>
+                <b class="u-keyword u-fs-900 u-pt-200 u-pb-400">${tabData["name"]}</b>
+                ${tabData["bio"]}
+            </dd>
+        </dl>
         `
 
     return crewMemberPanel;
@@ -258,12 +262,14 @@ function createCrewMemberPanel(tabData: tabData) {
 
 function createTermPanel(tabData: tabData) {
 
-    const crewMemberPanel = document.createElement("div");
+    const crewMemberPanel = document.createElement("dl");
 
     crewMemberPanel.innerHTML =
         `
-        <dt class="u-text-uppercase u-text-neu-100 u-fs-900 u-ff-sec">${tabData["name"]}</dt>
-        <dd>${tabData["description"]}</dd>
+        <dl>
+            <dt class="u-text-uppercase u-text-neu-100 u-fs-900 u-ff-sec">${tabData["name"]}</dt>
+            <dd>${tabData["description"]}</dd>
+        </dl>
         `
 
     return crewMemberPanel;

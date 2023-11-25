@@ -13,17 +13,27 @@ body {
 }
 
 .main__inner {
-  grid-column: grid;
-  display: grid;
-  grid-template-columns: subgrid;
+  grid-column: content;
 }
 @media (min-width: 992px) {
   .main__inner {
-    grid-column: content-start/grid-end;
+    grid-column: content;
   }
 }
-.main .c-page-heading {
-  grid-column: content-start;
+@supports (grid-template-columns: subgrid) {
+  .main__inner {
+    grid-column: grid;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+  @media (min-width: 992px) {
+    .main__inner {
+      grid-column: content-start/grid-end;
+    }
+  }
+  .main__inner .c-page-heading {
+    grid-column: content-start;
+  }
 }
 .main .c-tabs {
   grid-column: content;

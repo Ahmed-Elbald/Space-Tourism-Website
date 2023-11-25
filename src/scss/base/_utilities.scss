@@ -55,6 +55,7 @@
   font-family: var(--ff-sec);
   text-transform: uppercase;
   color: hsl(var(--clr-neu-100));
+  line-break: anywhere;
 }
 
 @each $textStyle in $textStyles {

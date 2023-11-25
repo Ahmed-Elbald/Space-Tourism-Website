@@ -1,26 +1,53 @@
 @use "./../abstracts/" as *;
 
 .c-main-nav {
-  --bgClr: hsl(var(--clr-neu-100) / 0.05);
-  --blurValue: blur(1rem);
+  --bgClr: hsl(var(--clr-neu-100) / 0.5);
+  --txtClr: hsl(var(--clr-neu-700));
+  --blurValue: blur(2rem);
   --inlinePadding: var(--containerInlinePadding);
+  --inlinePadding: 2rem;
   --navLineBg: hsl(var(--clr-neu-200));
   --navLineHeight: 0;
 
-  position: relative;
-  justify-self: flex-end;
+  @supports (grid-template-columns: subgrid) {
+    position: relative;
+    justify-self: flex-end;
 
-  @include min-mq(mobile) {
-    grid-column: content-start / grid-end;
-    display: grid;
-    grid-template-columns: subgrid;
+    @include min-mq(mobile) {
+      grid-column: content-start / grid-end;
+      display: grid;
+      grid-template-columns: subgrid;
+
+      &::before {
+        @include pseudoElement("");
+        grid-column: content-end / -1;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bgClr);
+      }
+    }
+
+    &::after {
+      @include pseudoElement("");
+      grid-column: content;
+      width: 100%;
+      height: var(--navLineHeight);
+      top: 50%;
+      inset-inline-start: 0;
+      transform: translateY(-50%);
+      background-color: var(--navLineBg);
+    }
+    @include min-mq(tablet) {
+      --inlinePadding: var(--spacer-1000);
+      --navLineHeight: 1px;
+    }
+  }
+
+  @supports (backdrop-filter: blur(1rem)) {
+    --bgClr: hsl(var(--clr-neu-100) / 0.1);
+    --txtClr: hsl(var(--clr-neu-100));
 
     &::before {
-      @include pseudoElement("");
-      grid-column: content-end / -1;
-      width: 100%;
-      height: 100%;
-      background-color: var(--bgClr);
       backdrop-filter: var(--blurValue);
     }
   }
@@ -29,21 +56,6 @@
     @include minmax-mq(mobile, tablet) {
       display: none;
     }
-  }
-
-  &::after {
-    @include pseudoElement("");
-    grid-column: content;
-    width: 100%;
-    height: var(--navLineHeight);
-    top: 50%;
-    inset-inline-start: 0;
-    transform: translateY(-50%);
-    background-color: var(--navLineBg);
-  }
-  @include min-mq(tablet) {
-    --inlinePadding: var(--spacer-1000);
-    --navLineHeight: 1px;
   }
 
   &__open,
@@ -62,9 +74,17 @@
     position: relative;
     justify-self: end;
     padding-inline-start: var(--inlinePadding);
+    padding-inline-end: var(--inlinePadding);
     background-color: var(--bgClr);
-    backdrop-filter: var(--blurValue);
     z-index: 1;
+
+    @supports (backdrop-filter: blur(1rem)) {
+      backdrop-filter: var(--blurValue);
+    }
+
+    @supports (grid-template-columns: subgrid) {
+      padding-inline-end: 0;
+    }
 
     @include max-mq(mobile) {
       position: fixed;
@@ -121,7 +141,7 @@
     position: relative;
     padding-inline-end: var(--spacer-1000);
     border-inline-end: var(--border);
-    color: hsl(var(--clr-neu-100));
+    color: var(--txtClr);
     font-size: var(--fs-400);
     letter-spacing: 2.7px;
     text-transform: uppercase;

@@ -7,6 +7,14 @@
     grid-column: content;
   }
 
+  h1 {
+    padding-block-start: var(--spacer-300);
+
+    @include min-mq(tablet) {
+      padding-block-start: var(--spacer-1000);
+    }
+  }
+
   .exp-link {
     @include min-mq(tablet) {
       align-self: flex-end;

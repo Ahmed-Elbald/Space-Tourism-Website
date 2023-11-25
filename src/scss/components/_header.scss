@@ -9,7 +9,7 @@
   }
   @include min-mq(tablet) {
     --logoWidth: 3.25rem;
-    --headerTopOffset: var(--spacer-900);
+    --headerTopOffset: var(--spacer-1000);
   }
 }
 
@@ -21,10 +21,16 @@
 
   &__inner {
     position: relative;
-    grid-column: breakout-start / grid-end;
-    display: grid;
-    align-items: center;
-    grid-template-columns: subgrid;
+    grid-column: content;
+    @include flexBetween();
+
+    @supports (grid-template-columns: subgrid) {
+      display: grid;
+      grid-column: breakout-start / grid-end;
+      grid-template-columns: subgrid;
+      align-items: center;
+      justify-content: unset;
+    }
   }
 
   &__logo {

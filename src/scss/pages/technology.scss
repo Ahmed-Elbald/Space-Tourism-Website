@@ -4,17 +4,25 @@
 
 .main {
   &__inner {
-    grid-column: grid;
-    display: grid;
-    grid-template-columns: subgrid;
+    grid-column: content;
 
     @include min-mq(tablet) {
-      grid-column: content-start / grid-end;
+      grid-column: content;
     }
-  }
 
-  .c-page-heading {
-    grid-column: content-start;
+    @supports (grid-template-columns: subgrid) {
+      grid-column: grid;
+      display: grid;
+      grid-template-columns: subgrid;
+
+      @include min-mq(tablet) {
+        grid-column: content-start / grid-end;
+      }
+
+      .c-page-heading {
+        grid-column: content-start;
+      }
+    }
   }
 
   .c-tabs {
