@@ -224,8 +224,8 @@ function createDestinationPanel(tabData: IDestinationTabData) {
 
     destinationPanel.innerHTML =
         `
-            <h2 class="js-destination-name u-keyword u-py-300 u-fs-1000">${tabName}</h2>
-            <p class="js-destination-desc">${tabData["description"]}</p>
+            <h2 class="u-keyword u-py-300 u-fs-1000">${tabName}</h2>
+            <p>${tabData["description"]}</p>
             <dl class="c-tabs__panel__details">
                 <div>
                     <dt class="u-text-uppercase u-fs-400 u-pb-200">avg. distance</dt>
@@ -342,7 +342,7 @@ function addLinkInteractivity(this: Tab) {
 
 function addPanelProperties(panel: HTMLElement, tabName: string) {
 
-    panel.className = "c-tabs__panel js-tab-panel";
+    panel.className = "c-tabs__panel";
     panel.role = "tabpanel";
     panel.tabIndex = 0;
 
