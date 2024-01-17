@@ -1,8 +1,6 @@
 @use "../abstracts" as *;
 
 .l-section {
-  --padding-block: ;
-
   padding-block: var(--spacer-1000);
 
   &:is([data-name="hero"], [data-height="fill"]) {

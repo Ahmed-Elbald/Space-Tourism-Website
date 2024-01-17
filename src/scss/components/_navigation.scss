@@ -1,11 +1,10 @@
 @use "./../abstracts/" as *;
 
 .c-main-nav {
-  --bgClr: hsl(var(--clr-neu-100) / 0.5);
-  --txtClr: hsl(var(--clr-neu-700));
+  --bgClr: hsl(var(--clr-neu-700) / 0.5);
+  --txtClr: hsl(var(--clr-neu-100));
   --blurValue: blur(2rem);
   --inlinePadding: var(--containerInlinePadding);
-  --inlinePadding: 2rem;
   --navLineBg: hsl(var(--clr-neu-200));
   --navLineHeight: 0;
 
@@ -45,7 +44,6 @@
 
   @supports (backdrop-filter: blur(1rem)) {
     --bgClr: hsl(var(--clr-neu-100) / 0.1);
-    --txtClr: hsl(var(--clr-neu-100));
 
     &::before {
       backdrop-filter: var(--blurValue);

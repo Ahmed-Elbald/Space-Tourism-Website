@@ -5,6 +5,10 @@
     @include min-mq(tablet) {
       justify-content: flex-start !important;
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__panels {

@@ -10,7 +10,7 @@
   @include min-mq(tablet) {
     --containerInlinePadding: 1fr;
     --containerBreakoutWidth: 5rem;
-    --contentWidth: min(calc(#{map-get($breakpoints, tablet)} + 200px), 80%);
+    --contentWidth: min(calc(#{map-get($breakpoints, tablet)} + 100px), 82.5%);
   }
 }
 

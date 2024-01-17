@@ -1582,7 +1582,7 @@ template {
   :root {
     --containerInlinePadding: 1fr;
     --containerBreakoutWidth: 5rem;
-    --contentWidth: min(calc(992px + 200px), 80%);
+    --contentWidth: min(calc(992px + 100px), 82.5%);
   }
 }
 
@@ -1591,23 +1591,16 @@ template {
   grid-template-columns: [grid-start] var(--containerInlinePadding) [breakout-start] var(--containerBreakoutWidth, 0) [content-start] var(--contentWidth, 1fr) [content-end] var(--containerBreakoutWidth, 0) [breakout-end] var(--containerInlinePadding) [grid-end];
 }
 
-.l-content-holder {
-  width: 90%;
-  max-width: 626px;
-  margin-inline: auto;
-  text-align: center;
-}
-@media (min-width: 992px) {
+@media (max-width: 992px) {
   .l-content-holder {
-    width: 100%;
-    max-width: none;
-    text-align: unset;
-    margin-inline: 0;
+    width: 90%;
+    max-width: 626px;
+    margin-inline: auto;
+    text-align: center;
   }
 }
 
 .l-section {
-  --padding-block: ;
   padding-block: var(--spacer-1000);
 }
 .l-section:is([data-name=hero], [data-height=fill]) {
@@ -1787,11 +1780,10 @@ template {
 }
 
 .c-main-nav {
-  --bgClr: hsl(var(--clr-neu-100) / 0.5);
-  --txtClr: hsl(var(--clr-neu-700));
+  --bgClr: hsl(var(--clr-neu-700) / 0.5);
+  --txtClr: hsl(var(--clr-neu-100));
   --blurValue: blur(2rem);
   --inlinePadding: var(--containerInlinePadding);
-  --inlinePadding: 2rem;
   --navLineBg: hsl(var(--clr-neu-200));
   --navLineHeight: 0;
 }
@@ -1838,7 +1830,6 @@ template {
 @supports ((-webkit-backdrop-filter: blur(1rem)) or (backdrop-filter: blur(1rem))) {
   .c-main-nav {
     --bgClr: hsl(var(--clr-neu-100) / 0.1);
-    --txtClr: hsl(var(--clr-neu-100));
   }
   .c-main-nav::before {
     -webkit-backdrop-filter: var(--blurValue);
@@ -1992,6 +1983,9 @@ template {
         -ms-flex-pack: start !important;
             justify-content: flex-start !important;
   }
+}
+.c-tabs__tablist:focus {
+  outline: none;
 }
 .c-tabs__panels {
   --marginSpacer: var(--spacer-1000);

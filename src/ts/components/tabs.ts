@@ -68,6 +68,7 @@ Tab.prototype.createLink = function () {
     tabLink.className = "c-tabs__link";
 
     tabLink.role = "tab";
+    tabLink.tabIndex = -1;
     tabLink.ariaSelected = "false";
     tabLink.setAttribute("aria-controls", `${foramttedName}-panel`);
     tabLink.setAttribute("aria-expanded", "false");
@@ -161,7 +162,7 @@ Tab.prototype.show = function () {
     this.link!.setAttribute("aria-expanded", "true");
 
     this.panel!.classList.add("js-show-up");
-    this.panel!.focus();
+    this.panel!.focus({ preventScroll: true });
 
     this.imgs!.forEach(img => img.classList.add("js-show-up"));
 
@@ -186,7 +187,9 @@ let tabList: HTMLElement | null;
         tabsContainer!.setAttribute("data-js-enabled", "true");
 
         tabList!.role = "tablist"
+        tabList!.tabIndex = 0;
         tabList!.setAttribute("aria-describedby", "tablist-usage-hint");
+        tabList?.addEventListener("focus", () => Tabs[0].link.focus({ preventScroll: true }))
 
         // Get the name of the current page
         currentPage = tabsContainer!.getAttribute("data-page") as string;
@@ -292,7 +295,9 @@ function addLinkInteractivity(this: Tab) {
     this.link.addEventListener("keydown", (keydownEvent: KeyboardEvent) => {
 
         const numberOfTabs = Tabs.length;
-        const currentTabIndex = Tabs.indexOf(this)
+        const currentTabIndex = Tabs.indexOf(this);
+
+        tabList!.tabIndex = -1;
 
         // If the arrow right key was pressed
         if (keyPressed(keydownEvent, "ArrowRight")) {
@@ -300,11 +305,11 @@ function addLinkInteractivity(this: Tab) {
             // If it's the last link in the tablist,
             // Move focus to the first link
             if (currentTabIndex === numberOfTabs - 1)
-                Tabs[0].link.focus();
+                Tabs[0].link.focus({ preventScroll: true });
 
             // Otherwise, move focus to the next link
             else
-                Tabs[currentTabIndex + 1].link.focus();
+                Tabs[currentTabIndex + 1].link.focus({ preventScroll: true });
 
             // If the arrow left key was pressed
         } else if (keyPressed(keydownEvent, "ArrowLeft")) {
@@ -312,29 +317,33 @@ function addLinkInteractivity(this: Tab) {
             // If it's the first link in the tablist,
             // Move focus to the last link
             if (currentTabIndex === 0)
-                Tabs[numberOfTabs - 1].link.focus();
+                Tabs[numberOfTabs - 1].link.focus({ preventScroll: true });
 
             // Otherwise, move focus to the previous link
             else
-                Tabs[currentTabIndex - 1].link.focus();
+                Tabs[currentTabIndex - 1].link.focus({ preventScroll: true });
 
         }
         // If the Home key was pressed
         else if (keyPressed(keydownEvent, "Home"))
-            Tabs[0].link.focus();
+            Tabs[0].link.focus({ preventScroll: true });
 
         // If the End key was pressed
         else if (keyPressed(keydownEvent, "End"))
-            Tabs[numberOfTabs - 1].link.focus();
+            Tabs[numberOfTabs - 1].link.focus({ preventScroll: true });
 
         // If the tab key was pressed
         else if (keyPressed(keydownEvent, "Tab")) {
 
             // Show the corresponding tab panel
-            keydownEvent.preventDefault();
-            this.show();
+            if (!keydownEvent.shiftKey) {
+                keydownEvent.preventDefault();
+                this.show();
+            }
 
         }
+
+        setTimeout(() => tabList!.tabIndex = 0, 0)
 
     });
 
